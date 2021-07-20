@@ -6,9 +6,9 @@ This project was created to house edge micro-services that can be easily built, 
 **Open Horizon documentation repository coming soon!** For the time being, you can learn more about [Open Horizon here](https://www.ibm.com/support/knowledgecenter/SSFKVV_4.2/kc_welcome_containers.html).
 
 ## Management Hub Installation
-Before you can publish and use any of the services in this repository, you must first deploy your own Horizon Management Hub. This can be done with one simple command using the `deploy-mgmt-hub.sh` script located in the [devops repository](https://github.com/open-horizon/devops/tree/master/mgmt-hub#horizon-management-hub). This will give you with a management hub with several services, policies and patterns published in the exchange. 
+Before you can publish and use any of the services in this repository, you must first deploy your own Horizon Management Hub. This can be done with one simple command using the `deploy-mgmt-hub.sh` script located in the [devops repository](https://github.com/open-horizon/devops/tree/master/mgmt-hub#horizon-management-hub). This will give you with a Management Hub with several services, policies and patterns published in the exchange. 
 
-## Register an Edge Node with your Mangement Hub
+## Register an Edge Node with your Management Hub
 Edge nodes must first be registered with a Management Hub before services can be deployed to them. The `agent-install.sh` script is a fast and easy way to register an edge node with a Management Hub, more information can be found in the [open-horizon/anax](https://github.com/open-horizon/anax/tree/master/agent-install#edge-node-agent-install) repository. Edge nodes can be either a device or a cluster. Open Horizon edge cluster capability helps you manage and deploy workloads from a management hub cluster to remote instances of OpenShift® Container Platform or other Kubernetes-based clusters. 
 
 Typically, **edge devices** have a prescriptive purpose, provide (often limited) compute capabilities, and are located near or at the data source. Currently supported edge device OS and architectures:
@@ -18,7 +18,7 @@ Typically, **edge devices** have a prescriptive purpose, provide (often limited)
   * Fedora Workstation 32
   * CentOS 8.2
   * SuSE 15 SP2
-* ppc64le (support starting Horizon version 2.28)
+* ppc64le (Horizon Agent version >=2.28)
   * Red Hat Enterprise Linux® 7.9
 * ARM (32-bit)
   * Linux on ARM (32-bit), for example Raspberry Pi, running Raspberry Pi OS buster or stretch
