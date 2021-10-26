@@ -37,7 +37,7 @@ Each service in the `open-horizon-services` project has a similar structure, and
 
 - `init` - mostly used for operator services to create the scaffolding of a new operator, or any form of code generation required to build
 - `build` - build the container
-- `dev` - open a shell in the container, for development, with source dir mounted. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L18) for an example of how this is done
+- `dev` - open a shell in the container for development, with source dir mounted. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L18) for an example of how this is done
 - `run` - run container locally
 - `stop` - stop and remove the container
 - `agent-run` - deploy the container to your edge node using the agent
@@ -75,4 +75,4 @@ Similar to the instructions above for contributing a microservice, if you want t
 
 #### Files for a top-level service designed to be a deployment pattern or deployment policy
 
-Each service designed to be composed as a deployment pattern should at least have a service definition json file, and a deployment pattern json that can be used to publish the service to a management hub. See the `service.json`, and `pattern.json` file of the `Achatina` **(add link when we have it merged)** service for an example.
+Each service designed to be composed as a deployment pattern should have a service definition json file and a deployment pattern json that can be used to publish the service to a management hub. See the `service.json` and `pattern.json` file of the `Achatina` **(add link when we have it merged)** service for an example.
