@@ -27,15 +27,17 @@ Typically, **edge devices** have a prescriptive purpose, provide (often limited)
 * Mac
   * macOS
 
-## Contributing a New Service 
+## Contributing a New Microservice 
+
+If you have a service you would like to contribute to the `open-horizon-services` project, please create a post on the Matrix chat server [open-horizon-examples](https://chat.lfx.linuxfoundation.org/#/room/#open-horizon-examples:chat.lfx.linuxfoundation.org) channel and tag it with `#new-edge-service`. In your post, please provide a brief description of the service you want to add, the desired name, and a list of the github usernames of each maintainer/contributor you would like added to your new repo(s). **Please note**, we do have a naming convention where microservices designed to be a building-block and incorporated into a variety of edge solutions, like [service-mqtt](https://github.com/open-horizon-services/service-mqtt), are prepended with `"service-"`.
 
 Each service in the `open-horizon-services` project has a similar structure, and set of files, in an attempt to make each service as easy as possible to build, test, publish, and deploy. See the [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python) service for an example of the minimum set of files a service should have.
 
-#### Makefile targets 
+#### Makefile targets for microservices
 
 - `init` - mostly used for operator services to create the scaffolding of a new operator, or any form of code generation required to build
 - `build` - build the container
-- `dev` - open a shell in the container, for development, with source dir mounted. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L18) for an example of how this is done
+- `dev` - open a shell in the container for development, with source dir mounted. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L18) for an example of how this is done
 - `run` - run container locally
 - `stop` - stop and remove the container
 - `agent-run` - deploy the container to your edge node using the agent
@@ -46,6 +48,31 @@ Each service in the `open-horizon-services` project has a similar structure, and
 - `clean` - calls stop and also removes the container image
 - `distclean` - clean as much as possible, e.g., remove all container and all images, and docker network prune, etc.
 
-#### Files
+#### Files for microservices
 
 Each service should at least have a service definition json file that can be used to publish the service to a management hub. See the `service.json` file of the [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/main/service.json) service for an example. 
+
+## Contributing a new top-level service designed to be a deployment pattern or deployment policy
+
+Similar to the instructions above for contributing a microservice, if you want to add a top-level service that is designed to be used as a deployment pattern or policy, we ask you still create a post on the Matrix chat server [open-horizon-examples](https://chat.lfx.linuxfoundation.org/#/room/#open-horizon-examples:chat.lfx.linuxfoundation.org) channel and tag it with `#new-edge-service`, provide a brief description of the service, and include a list of the github usernames of each maintainer/contributor you would like added to your new repository. However, the name of your edge solution should be capitalized, similar to the `Achatina` **(add link when we have it merged)** service.
+
+#### Makefile targets for top-level services designed to be a deployment pattern or deployment policy
+
+- `init` - mostly used for operator services to create the scaffolding of a new operator, or any form of code generation required to build
+- `build` - build the container
+- `dev` - open a shell in the container for development, with source dir mounted. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L18) for an example of how this is done
+- `run` - run container locally
+- `stop` - stop and remove the container
+- `agent-run` - deploy the container to your edge node using the agent
+- `agent-stop` - stop the container running from `agent-run` 
+- `test` - assumes container is running. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L31) for one example of how this can be done
+- `push` - to docker compliant registry
+- `publish-service` - verify and publish the service
+- `publish-pattern` - publish the pattern using the properties defined in the `pattern.json` file
+- `register-pattern` - register an edge node with the published pattern
+- `clean` - calls stop and also removes the container image
+- `distclean` - clean as much as possible, e.g., remove all container and all images, and docker network prune, etc.
+
+#### Files for a top-level service designed to be a deployment pattern or deployment policy
+
+Each service designed to be composed as a deployment pattern should have a service definition json file and a deployment pattern json that can be used to publish the service to a management hub. See the `service.json` and `pattern.json` file of the `Achatina` **(add link when we have it merged)** service for an example.
