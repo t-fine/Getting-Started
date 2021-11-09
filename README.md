@@ -60,7 +60,7 @@ Similar to the instructions above for contributing a microservice, if you want t
 
 - `init` - mostly used for operator services to create the scaffolding of a new operator, or any form of code generation required to build
 - `build` - build the container
-- `dev` - open a shell in the container, for development, with source dir mounted. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L18) for an example of how this is done
+- `dev` - open a shell in the container for development, with source dir mounted. See [web-helloworld-python](https://github.com/open-horizon-services/web-helloworld-python/blob/89ecbea75dfbd40ab939a711c879db81907120d1/Makefile#L18) for an example of how this is done
 - `run` - run container locally
 - `stop` - stop and remove the container
 - `agent-run` - deploy the container to your edge node using the agent
